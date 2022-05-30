@@ -6,6 +6,8 @@ using UnityEngine;
 public class AlarmSystem : MonoBehaviour
 {
     private AudioSource _audioSource;
+    private readonly float _minVolumeValue = 0f;
+    private readonly float _maxVolumeValue = 1f;
 
     private void Start()
     {
@@ -16,12 +18,12 @@ public class AlarmSystem : MonoBehaviour
     public void ActivateAlarm()
     {
         _audioSource.Play();
-        StartCoroutine(ChangeVolume(1f));
+        StartCoroutine(ChangeVolume(_maxVolumeValue));
     }
 
     public void DeactivateAlarm()
     {        
-        StartCoroutine(ChangeVolume(0f));
+        StartCoroutine(ChangeVolume(_minVolumeValue));
 
         if (_audioSource.volume == 0f)
         {

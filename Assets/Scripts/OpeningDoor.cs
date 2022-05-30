@@ -1,8 +1,11 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class OpeningDoor : MonoBehaviour
 {
     private Animator _animator;
+    private const string _open = "Open";
 
     private void Start()
     {
@@ -13,7 +16,7 @@ public class OpeningDoor : MonoBehaviour
     {
         if (collision.TryGetComponent<Thief>(out Thief thief))
         {
-            _animator.SetTrigger("Open");
+            _animator.SetTrigger(_open);
         }
     }
 }

@@ -8,8 +8,10 @@ public class AlarmSystemActivator : MonoBehaviour
     {
         if (collision.TryGetComponent<Thief>(out Thief thief))
         {
-            if (_alarmSystem.TryGetComponent<AlarmSystem>(out AlarmSystem alarmSystem))
-                alarmSystem.ActivateAlarm();
+            if (_alarmSystem)
+            {
+                _alarmSystem.ActivateAlarm();
+            }                
         }
     }
 }
