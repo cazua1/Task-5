@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThiefRoute : MonoBehaviour
+public class WaypointMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;   
     [SerializeField] private Transform[] _points;

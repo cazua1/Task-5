@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class AlarmSystemActivator : MonoBehaviour
+public class AlarmActivator : MonoBehaviour
 {
-    [SerializeField] private AlarmSystem _alarmSystem;
+    [SerializeField] private Alarm _alarm;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Thief>(out Thief thief))
         {
-            _alarmSystem.ActivateAlarm();
+            _alarm.Activate();
         }
     }
 }

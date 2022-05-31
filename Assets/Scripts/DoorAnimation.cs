@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 
-public class OpeningDoor : MonoBehaviour
+public class DoorAnimation : MonoBehaviour
 {
     private Animator _animator;
     private const string _open = "Open";

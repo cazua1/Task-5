@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class AlarmSystemDeactivator : MonoBehaviour
+public class AlarmDeactivator : MonoBehaviour
 {
-    [SerializeField] private AlarmSystem _alarmSystem;    
+    [SerializeField] private Alarm _alarm;    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Thief>(out Thief thief))
         {
-            _alarmSystem.DeactivateAlarm();
+            _alarm.Deactivate();
         }
     }
 }
