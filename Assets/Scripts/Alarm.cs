@@ -23,12 +23,8 @@ public class Alarm : MonoBehaviour
         if (_changeVolumeCoroutine != null)
         {
             StopCoroutine(_changeVolumeCoroutine);
-            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));            
         }
-        else
-        {
-            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));
-        }
+        _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));
     }
 
     public void Deactivate()
@@ -36,12 +32,8 @@ public class Alarm : MonoBehaviour
         if (_changeVolumeCoroutine != null)
         {
             StopCoroutine(_changeVolumeCoroutine);
-            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_minVolumeValue));
         }
-        else
-        {            
-            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));
-        }
+        _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_minVolumeValue));
 
         if (_audioSource.volume == 0f)
         {
