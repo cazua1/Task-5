@@ -7,9 +7,9 @@ public class Alarm : MonoBehaviour
 {
     private AudioSource _audioSource;
     private readonly float _minVolumeValue = 0f;
-    private readonly float _maxVolumeValue = 1f;
-    private IEnumerator _changeVolumeCoroutine;
-    
+    private readonly float _maxVolumeValue = 1f;    
+    private Coroutine _changeVolumeCoroutine;
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -23,13 +23,11 @@ public class Alarm : MonoBehaviour
         if (_changeVolumeCoroutine != null)
         {
             StopCoroutine(_changeVolumeCoroutine);
-            _changeVolumeCoroutine = ChangeVolume(_maxVolumeValue);
-            StartCoroutine(_changeVolumeCoroutine);
+            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));            
         }
         else
         {
-            _changeVolumeCoroutine = ChangeVolume(_maxVolumeValue);
-            StartCoroutine(_changeVolumeCoroutine);
+            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));
         }
     }
 
@@ -38,13 +36,11 @@ public class Alarm : MonoBehaviour
         if (_changeVolumeCoroutine != null)
         {
             StopCoroutine(_changeVolumeCoroutine);
-            _changeVolumeCoroutine = ChangeVolume(_minVolumeValue);
-            StartCoroutine(_changeVolumeCoroutine);
+            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_minVolumeValue));
         }
         else
-        {
-            _changeVolumeCoroutine = ChangeVolume(_minVolumeValue);
-            StartCoroutine(_changeVolumeCoroutine);
+        {            
+            _changeVolumeCoroutine = StartCoroutine(ChangeVolume(_maxVolumeValue));
         }
 
         if (_audioSource.volume == 0f)

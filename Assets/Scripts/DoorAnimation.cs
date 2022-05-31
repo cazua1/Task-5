@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DoorAnimation : MonoBehaviour
 {
-    private Animator _animator;
-    private const string _open = "Open";
+    private const string Open = "Open";
+
+    private Animator _animator;    
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class DoorAnimation : MonoBehaviour
     {
         if (collision.TryGetComponent<Thief>(out Thief thief))
         {
-            _animator.SetTrigger(_open);
+            _animator.SetTrigger(Open);
         }
     }
 }
